@@ -1,0 +1,44 @@
+            body {
+                background-color: black;
+            }
+
+            .head {
+                color: aqua;
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 28px;
+            }
+
+            label {
+                color: rgb(122, 122, 255);
+                font-size: 21px;
+                font-family: monospace;
+
+            }
+
+            input {
+                color: #4100aa;
+                background-color: aqua;
+                border: none;
+                font-family: cursive;
+            }
+
+            input:hover {
+                background-color: rgb(122, 122, 255);
+                color: cyan;
+
+            }
+
+            button {
+                cursor: pointer;
+                color: deeppink;
+                background-color: transparent;
+                font-family: cursive;
+                font-size: 18px;
+
+            }
+
+            button:hover {
+                color: aqua;
+                background-color: deeppink;
+            }
