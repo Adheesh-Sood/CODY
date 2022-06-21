@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+body,
+html {
+    background-color: #000000;
+    height: fit-content;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0px 0px 10px #000000;
+}
+
+.sub-box {
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: right;
+}
+
+.sub-box- {
+    padding-right: 90px;
+    font-family: 'Pacifico', cursive;
+}
+
+.info {
+    background-color: #111010;
+    opacity: 70%;
+    color: white;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.vertical-line {}
+
+.info-btn {
+    width: fit-content;
+    height: fit-content;
+}
+
+img {
+    height: 30px;
+}
+
+.span {
+    padding-left: 500px;
+}
+
+.box-head-vid {
+    background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.align {
+    display: flex;
+    justify-content: right;
+}
+
+.head {
+    width: 500px;
+    font-family: 'Pacifico', cursive;
+    border: 9px solid white;
+    background-image: linear-gradient(to right, #4facfe 40%, #00f2fe 100%);
+}
+
+h1 {
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    font-size: 40px;
+    font-family: 'Lobster', cursive;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.box-head-learn {
+    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.box-head-share {
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.box-head-learn,
+.box-head-share,
+.box-head-vid {
+    font-weight: normal;
+    font-family: 'Lobster', cursive;
+}
+
+.info-text {
+    font-size: 17px;
+    font-style: italic;
+    font-family: cursive;
+    font-variant: small-caps;
+}
+
+button {
+    text-align: center;
+    width: 120px;
+    height: 35px;
+    ;
+    border: 2px solid #6a11cb;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #6a11cb;
+    cursor: pointer;
+    position: relative;
+}
+
+button:hover {
+    background-color: #6a11cb;
+    color: black;
+    transition: 1s ease;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50px;
+    background: transparent;
+    height: 50%;
+    width: 100%;
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(8px);
+    transition: 1s ease;
+}

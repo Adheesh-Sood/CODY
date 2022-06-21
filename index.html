@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="./index.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +30,6 @@
 
 
     <div class="boxes">
-        <!--VIDOES-->
         <div class="span"> <span class="vertical-line"></span></div>
         <div class="sub-box">
 
@@ -42,12 +44,10 @@
 
 
         </div>
-        <!--/////////////-->
         <br>
         <br>
 
 
-        <!--Learn-->
         <div class="sub-box">
             <h1 class="box-head-learn"> Learn</h1>
 
@@ -62,7 +62,6 @@
         <br>
         <br>
         <div class="boxes">
-            <!--VIDOES-->
             <div class="sub-box">
                 <h1 class="box-head-share"> Upload</h1>
 
@@ -70,11 +69,13 @@
                     <h2 class="info-text">Be inspired by the work of other people's coding projects or share your coding projects to! </h2> <button class="btn" id="goShare">Go</button>
                 </div>
 
-                <div class="sub-box">
-                    <h1 class="box-head-share"> View</h1>
+                <div class="sub-box-">
+                    <h1 class="box-head-view"> View</h1>
 
                     <div class="info">
-                        <h2 class="info-text"></h2> <button class="btn" id="goShare">Go</button>
+                        <h2 class="info-text"></h2>
+                        <h2 class="info-text">Look at amazing projects all along all the coding languages</h2>
+                        <button class="btn" id="goView">Go</button>
                     </div>
 
 
@@ -84,155 +85,16 @@
 
                 </div>
 
-                <!--/////////////-->
 
 
 
 
 
 
-                <style>
-                    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-                    @import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap');
-                    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-                    body,
-                    html {
-                        background-color: #000000;
-                        height: fit-content;
-                    }
-                    
-                    .boxes {
-                        padding-bottom: 400px;
-                        display: inline;
-                    }
-                    
-                    .sub-box {
-                        display: inline-block;
-                        padding: 1rem 1rem;
-                        vertical-align: right;
-                    }
-                    
-                    .info {
-                        background-color: #111010;
-                        opacity: 70%;
-                        color: white;
-                        border: 1px solid black;
-                        align-items: center;
-                    }
-                    
-                    .vertical-line {}
-                    
-                    .info-btn {
-                        width: fit-content;
-                        height: fit-content;
-                    }
-                    
-                    img {
-                        height: 30px;
-                    }
-                    
-                    .span {
-                        padding-left: 500px;
-                    }
-                    
-                    .box-head-vid {
-                        background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                    }
-                    
-                    .align {
-                        display: flex;
-                        justify-content: right;
-                    }
-                    
-                    .head {
-                        width: 500px;
-                        font-family: 'Pacifico', cursive;
-                        border: 9px solid white;
-                        background-image: linear-gradient(to right, #4facfe 40%, #00f2fe 100%);
-                    }
-                    
-                    h1 {
-                        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-                        font-size: 40px;
-                        font-family: 'Lobster', cursive;
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                    }
-                    
-                    .box-head-learn {
-                        background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                    }
-                    
-                    .box-head-share {
-                        background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                    }
-                    
-                    .box-head-learn,
-                    .box-head-share,
-                    .box-head-vid {
-                        font-weight: normal;
-                        font-family: 'Lobster', cursive;
-                    }
-                    
-                    .info-text {
-                        font-size: 17px;
-                        font-style: italic;
-                        font-family: cursive;
-                        font-variant: small-caps;
-                    }
-                    
-                    button {
-                        text-align: center;
-                        width: 120px;
-                        height: 35px;
-                        ;
-                        border: 2px solid white;
-                        border-radius: 10px;
-                        background-color: transparent;
-                        color: white;
-                        cursor: pointer;
-                        position: relative;
-                    }
-                    
-                    button:hover {
-                        background-color: white;
-                        color: black;
-                        transition: 1s ease;
-                    }
-                    
-                    button::before {
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        top: 50px;
-                        background: transparent;
-                        height: 50%;
-                        width: 100%;
-                        transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
-                        filter: blur(8px);
-                        transition: 1s ease;
-                    }
-                </style>
-                <script type="module" src="index.js"></script>
-                <script>
-                    document.getElementById("goVid").onclick = function() {
-                        window.location.href = "videos.html"
-                    }
 
-                    document.getElementById("goLearn").onclick = function() {
-                        window.location.href = "learn.html"
-                    }
 
-                    document.getElementById("goShare").onclick = function() {
-                        window.location.href = "share.html"
-                    }
-                </script>
+
+
 </body>
 
 
