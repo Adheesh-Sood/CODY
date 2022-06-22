@@ -8,19 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<h1 class="head">Signup<h1>
+<h1 class="head">Signup
+    <h1>
         <hr>
 
 
         <div id="signup">
 
-            
 
-            <label for="">Email</label> <!-- -->
+
+            <label for="">Email</label>
+            <!-- -->
             <!--Signup-->
             <input id='email' type="email">
             <br>
-            <label for="">password</label> <!-- -->
+            <label for="">password</label>
+            <!-- -->
             <!--Signup-->
             <input id='pass' type="password">
             <br>
@@ -28,17 +31,21 @@
             <h2 class="error" id="invalidEmail">Email is invalid</h2>
             <h2 class="error" id="passwordInvalid">Invalid password Must contain 6 characters or more</h2>
             <h2 class="error" id="accinuse">Account already in use !</h2>
-    
+
+            <button id="reset">Forgot Password</button>
+
 
 
         </div>
         <h1 class="head">Sign in</h1>
         <div id="login_">
-            <label for="">Email</label> <!-- -->
+            <label for="">Email</label>
+            <!-- -->
             <!--LOGIN-->
             <input id='email_' type="email">
             <br>
-            <label for="">password</label> <!-- -->
+            <label for="">password</label>
+            <!-- -->
             <!--LOGIN-->
             <input id='pass_' type="password">
             <br>
@@ -58,116 +65,112 @@
         <br>
         <br>
         <br>
-        <button id="test">Test</button>
+        <br>
+        <div style="display:none;" id="resetPass">
+            <label for="">Email used for account</label><input type="email" id="email2"> <button id="goR">Go</button>
+        </div>
 
 
-                <div class="images">
-                    <img src="./man-working-laptop-room-flat-cartoon-character-sitting-behind-computer-freelancer-workplace-work-desk-business-concept-143039878.jpg" alt="" class="man">
-                    <img src="./person-working-home-cartoon-character-computer-vector-illustration-184350874.jpg" alt="">
-                </div>
+
+
 
         <style>
             body {
-                padding-top: 60px;;
+                padding-top: 60px;
+                ;
                 background-color: #011627;
             }
-            .signup{
+            
+            .signup {
                 display: inline-block;
                 align-items: center;
             }
-
+            
             .head {
-                color: #2AB6CA;;
+                color: #2AB6CA;
+                ;
                 text-align: center;
                 font-family: sans-serif;
                 font-size: 28px;
             }
-
+            
             label {
                 color: #343944;
                 font-size: 21px;
                 font-family: monospace;
-
             }
-            .error{
-                color:red;
+            
+            .error {
+                color: red;
                 font-family: monospace;
-                font-size:14px;
+                font-size: 14px;
             }
-
+            
             input {
                 cursor: pointer;
                 color: #4100aa;
-                background-color:cyan;
+                background-color: cyan;
                 border: none;
                 font-family: cursive;
             }
-
-            input:hover {
             
-                transition:1s ease-out;
-                background-color:#343944;
+            input:hover {
+                transition: 1s ease-out;
+                background-color: #343944;
                 color: cyan;
-
             }
-
+            
             button {
                 text-align: center;
-                width:120px;
-                height:35px;;
-                border:2px solid white;
-                border-radius:10px;
+                width: 120px;
+                height: 35px;
+                ;
+                border: 2px solid white;
+                border-radius: 10px;
                 background-color: transparent;
-                color:white;
+                color: white;
                 cursor: pointer;
                 position: relative;
-            
-                
-
             }
-
+            
             button:hover {
-                background-color:white;
-                color:black;
-                transition:1s ease;
-
-   
-            }
-            button::before{
-                content: '';
-                position:absolute;
-                left: 0 ;
-                top:50px;
-                background:transparent;
-                height:50%;
-                width:100%;
-                transform:  perspective(1em)
-                rotateX(40deg) scale(1,0.35);
-                filter:blur(8px);
+                background-color: white;
+                color: black;
                 transition: 1s ease;
-
+            }
             
-
-
-
+            button::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50px;
+                background: transparent;
+                height: 50%;
+                width: 100%;
+                transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+                filter: blur(8px);
+                transition: 1s ease;
             }
-            img{
-                padding-left:400px;
-                text-align:center;
-                height:200px;
+            
+            img {
+                padding-left: 400px;
+                text-align: center;
+                height: 200px;
             }
-            .images{
-                background-color:white;
+            
+            .images {
+                background-color: white;
             }
-            .man{
-                padding-right:400000px;
+            
+            .man {
+                padding-right: 400000px;
             }
         </style>
 
 
 
         <script type="module" src="./login.js">
-     
+
 
 
 
@@ -182,10 +185,3 @@
 
 
 </html>
-
-
-
-
-
-
-

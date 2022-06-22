@@ -1,8 +1,12 @@
  // Import the functions you need from the SDKs you need
  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
- import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
+ //hiding reset password div
+ document.getElementById("reset").onclick = function() {
+     document.getElementById("resetPass").style.display = ""
+ }
 
  // Your web app's Firebase configuration
  const firebaseConfig = {
@@ -127,7 +131,23 @@
  })
 
  document.getElementById("google").onclick = function() {
-     document.location.href = "google-auth.html"
+         document.location.href = "google-auth.html"
+     }
+     //const email2
+ const email2 = document.getElementById("email2").value
+ document.getElementById("goR").onclick = function() {
+     sendPasswordResetEmail(auth, email2)
+         .then(() => {
+             // Password reset email sent!
+             // ..
+         })
+         .catch((error) => {
+             const errorCode = error.code;
+             const errorMessage = error.message;
+             console.log(errorMessage + errorCode)
+                 // ..
+         });
+
  }
 
  //export function
