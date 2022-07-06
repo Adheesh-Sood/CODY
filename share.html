@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./upload.css">
 </head>
+
 <body>
-    <h1 class="head">Share</h1>
+    <center>
+
+        <h1 class="head">Upload</h1>
+        <button id="selectLangBtnMain">Select Language</button>
+
+        <div id="langDiv">
+
+            <h2 id="selectLang">Select a language</h2>
+            <button id="langHtmlBtn">Html
+            </button>
+            <br>
+            <br>
+
+
+            <button id="langCssBtn">C.S.S</button>
+            <br>
+            <br>
+
+
+
+            <button id="langJsBtn">Javascript</button>
+            <br>
+            <br>
+
+
+            <button id="langPyBtn">Python</button>
+            <br>
+            <br>
+
+
+            <button id="langCpBtn">C++</button>
+            <br>
+            <br>
+
+
+            <button id="langCsBtn">C#</button>
+
+
+        </div>
+    </center>
+
+    <textarea style="display:none;" name="" id="textUploadCode" cols="30" rows="10"></textarea>
+    <button style="display:none;" id="go">Done</button>
+
+    <script type="module" src="./upload.js">
+
+
+    </script>
+
+
 </body>
+
 </html>

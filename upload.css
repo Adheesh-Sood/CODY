@@ -1,0 +1,12 @@
+body {
+    background-color: dimgrey;
+}
+
+.head {
+    font-size: 40px;
+    color: rgb(0, 141, 141);
+    text-align: center;
+    font-family: cursive;
+    font-style: italic;
+    font-weight: bold;
+}

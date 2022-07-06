@@ -139,3 +139,26 @@ button::before {
     filter: blur(8px);
     transition: 1s ease;
 }
+
+input {
+    font-family: cursive;
+    transition: width 6s;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid #262335;
+    ;
+    border-radius: 25px;
+    background: #56FFC9;
+    padding: 20px;
+    width: 300px;
+    height: 0.1px;
+}
+
+input:hover {
+    width: 96%;
+    background-color: black;
+    ;
+    color: #56FFC9;
+    border: 3px solid black;
+    transition: 2s ease-in-out;
+}

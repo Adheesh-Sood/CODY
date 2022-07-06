@@ -1,0 +1,47 @@
+body {
+    background-color: #151515;
+}
+
+.head {
+    font-size: 34px;
+    color: greenyellow;
+    text-align: center;
+    font-family: monospace;
+}
+
+.auth {
+    color: aqua;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: cursive;
+    text-align: center;
+    height: 40px;
+    background-color: #151515
+}
+
+.auth:hover {
+    color: #151515;
+    background-color: #EF013F;
+}
+
+img {
+    padding-top: 4px;
+    height: 30px;
+}
+
+.info {
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aqua;
+}
+
+.head2 {
+    font-size: 25px;
+    font-family: 'Dancing Script', cursive;
+    color: #EF013F;
+}
+
+.head2:hover {
+    color: aqua;
+}
