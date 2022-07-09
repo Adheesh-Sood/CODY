@@ -11,20 +11,20 @@ window.addEventListener('load', () => {
     network = navigator.onLine;
     if (network == false) {
         netMode = "offline"
-            //................................................................
-        document.getElementById("goShare").onclick = function() {
+        //................................................................
+        document.getElementById("goShare").onclick = function () {
             window.alert("No internet(You need a conection to the internet before using share or view)")
         }
-        document.getElementById("goView").onclick = function() {
-                window.alert("No internet(You need a conection to the internet before using share or view)")
+        document.getElementById("goView").onclick = function () {
+            window.alert("No internet(You need a conection to the internet before using share or view)")
 
-            }
-            //................................................................
-    } else if (network == true) {
-        document.getElementById("goShare").onclick = function() {
-            window.location.href = "share.html"
         }
-        document.getElementById("goView").onclick = function() {
+        //................................................................
+    } else if (network == true) {
+        document.getElementById("goShare").onclick = function () {
+            window.location.href = "upload.html"
+        }
+        document.getElementById("goView").onclick = function () {
             document.location.href = "view.html"
         }
         netMode = "online"
@@ -32,16 +32,16 @@ window.addEventListener('load', () => {
         netMode = "error"
     }
 })
-document.getElementById("goVid").onclick = function() {
+document.getElementById("goVid").onclick = function () {
     window.location.href = "videos.html"
 }
 
-document.getElementById("goLearn").onclick = function() {
+document.getElementById("goLearn").onclick = function () {
     window.location.href = "learn.html"
 }
 
 let statHover = document.getElementById("stat")
-statHover.addEventListener('mouseover', function(event) {
+statHover.addEventListener('mouseover', function (event) {
 
     if (network == false) {
         document.getElementById("stat").style.border = "2px solid red"
@@ -53,12 +53,12 @@ statHover.addEventListener('mouseover', function(event) {
         document.getElementById("stat").value = "Online :)"
     }
 })
-document.getElementById("try").addEventListener('click', function() {
+document.getElementById("try").addEventListener('click', function () {
     location.reload();
 
 
 })
-document.getElementById('update').onclick = function() {
+document.getElementById('update').onclick = function () {
     document.getElementById('demo').innerHTML = Date()
 
 }

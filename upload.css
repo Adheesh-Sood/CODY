@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
-    background-color: dimgrey;
+  background-color: rgba(0, 0, 0, .87);
 }
 
-.head {
-    font-size: 40px;
-    color: rgb(0, 141, 141);
-    text-align: center;
-    font-family: cursive;
-    font-style: italic;
-    font-weight: bold;
+#uploadCode {
+  font-size: 20px;
+  font-family: cursive;
+  width: 95%;
+  background-color: #000000;
+  color: rgb(0, 240, 0);
+  height: 500px;
+
 }

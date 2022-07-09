@@ -1,5 +1,27 @@
-//JS 
-//Variables 
+import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+import { getDatabase, ref, set, push, child, get, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js"
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDpnibzSE0ygWpQFbrio3xY85_xq7kotvs",
+    authDomain: "uploadpleasework.firebaseapp.com",
+    databaseURL: "https://uploadpleasework-default-rtdb.firebaseio.com",
+    projectId: "uploadpleasework",
+    storageBucket: "uploadpleasework.appspot.com",
+    messagingSenderId: "1019661590610",
+    appId: "1:1019661590610:web:4f69fd16fe7bf6fcff3f8b"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const dbRef = ref(db);
+
 
 var lang = "none";
 //..................
@@ -7,7 +29,7 @@ var input = document.getElementById("search");
 //................................................................
 document.getElementById("search").display = ""
 
-document.getElementById("innerSearch").style.display = "none"
+
 //................................................................
 input.addEventListener("keypress", function (event) {
     if (event.key == "Enter") {
@@ -16,9 +38,7 @@ input.addEventListener("keypress", function (event) {
             document.getElementById("error").style.display = "none"
             document.getElementById("search").style.display = "none"
             document.getElementById("search").display = "none"
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
-            document.getElementById("innerBtn").style.display = ""
+
             lang = "python";
 
         } else if (search == "Python") {
@@ -27,8 +47,7 @@ input.addEventListener("keypress", function (event) {
             document.getElementById("search").style.display = "none"
 
             lang = "python";
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
+
 
             document.getElementById("py").style.display = ""
 
@@ -38,11 +57,7 @@ input.addEventListener("keypress", function (event) {
             document.getElementById("search").style.display = "none"
 
             lang = "python";
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
 
-            document.getElementById("innerSearch").value = "HTML :: "
-            document.getElementById("innerBtn").style.display = ""
             lang = "html";
             window.alert("Html")
 
@@ -53,12 +68,9 @@ input.addEventListener("keypress", function (event) {
             document.getElementById("search").style.display = "none"
 
             lang = "python";
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
 
-            document.getElementById("innerSearch").value = "HTML :: "
 
-            document.getElementById("innerBtn").style.display = ""
+
             lang = "html";
             window.alert("HTML")
         } else if (search == "CSS") {
@@ -67,12 +79,7 @@ input.addEventListener("keypress", function (event) {
             document.getElementById("search").style.display = "none"
 
             lang = "python";
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
 
-            document.getElementById("innerSearch").value = "CSS :: "
-
-            document.getElementById("innerBtn").style.display = ""
             lang = "css";
             Window.alert("CSS")
         } else if (search == "css") {
@@ -81,12 +88,9 @@ input.addEventListener("keypress", function (event) {
             document.getElementById("search").style.display = "none"
 
             lang = "python";
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
 
-            document.getElementById("innerSearch").value = "CSS :: "
 
-            document.getElementById("innerBtn").style.display = ""
+
             lang = "css";
             Window.alert("CSS")
         } else if (search == "javascript") {
@@ -94,13 +98,7 @@ input.addEventListener("keypress", function (event) {
 
             document.getElementById("search").style.display = "none"
 
-            lang = "python";
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
 
-            document.getElementById("innerSearch").value = "Javascript :: "
-
-            document.getElementById("innerBtn").style.display = ""
             lang = "js"
             window.alert("Javascript")
         } else if (search == "Javascript") {
@@ -108,14 +106,9 @@ input.addEventListener("keypress", function (event) {
 
             document.getElementById("search").style.display = "none"
 
-            lang = "python";
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
 
-            document.getElementById("innerSearch").display = ""
-            document.getElementById("innerSearch").value = "Javascript :: "
 
-            document.getElementById("innerBtn").style.display = ""
+
             lang = "js"
             window.alert("Javascript")
         } else if (search == "C++") {
@@ -124,12 +117,9 @@ input.addEventListener("keypress", function (event) {
             document.getElementById("search").style.display = "none"
 
             lang = "python";
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
 
-            document.getElementById("innerSearch").value = "C++ :: "
 
-            document.getElementById("innerBtn").style.display = ""
+
             lang = "c++";
             window.alert("C++")
         } else if (search == "C#") {
@@ -138,12 +128,10 @@ input.addEventListener("keypress", function (event) {
             document.getElementById("search").style.display = "none"
 
             lang = "python";
-            document.getElementById("innerSearch").style.display = ""
-            document.getElementById("innerSearch").value = "Python :: "
 
-            document.getElementById("innerSearch").value = "C# :: "
 
-            document.getElementById("innerBtn").style.display = ""
+
+
             lang = "c#";
             window.alert("C#")
         } else {
@@ -156,29 +144,26 @@ input.addEventListener("keypress", function (event) {
 
 
 
+
+
+
+        document.getElementById('show').addEventListener('click', function () {
+            const dbRef = ref(db, 'posts/html/att');
+
+            onValue(dbRef, (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    const childKey = childSnapshot.key;
+                    const childData = childSnapshot.val();
+
+                    ;
+                    document.getElementById('data').value = (childData).title;
+
+
+                });
+            }, {
+                onlyOnce: true
+            });
+        })
     }
-    var innerSearch = document.getElementById("innerSearch")
-    innerSearch.addEventListener("keypress", function (event) {
-        if (event.key == "Enter") {
-            if (lang == "python") {
-                console.log("python")
-            } else if (lang == "html") {
-                console.log("html")
-            } else if (lang == "css") {
-                console.log("css")
-            } else if (lang == 'js') {
-                console.log("js")
-            } else if (lang == "c++") {
-                console.log("cpp")
-            } else if (lang == "c#") {
-                console.log('c#')
-            }
-        }
+})
 
-    }
-
-    )
-}
-
-
-)

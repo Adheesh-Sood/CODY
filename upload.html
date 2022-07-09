@@ -3,14 +3,35 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./upload.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Upload</title>
 </head>
 
 <body>
-    <h1 class="head">Upload</h1>
-    <textarea name="" id="code" cols="30" rows="10"></textarea>
+    <center><input type="text" readonly id='lang'></center>
+    <br>
+    <br>
+
+
+
+    <center><input type="text" name="" id="title" placeholder="Title of your code"> <textarea name="" id="uploadCode"
+            cols="30" rows="10"></textarea></center>
+    <br>
+    <button id="html-btn">Html</button>
+    <div id="htmlDiv">
+        <button id="btnTag">Html tags</button>
+
+        <button id="btnAtt">Html attributes</button>
+
+    </div>
+    <a href="./uploadFile.html" title="Users will have to download the file to veiw or run your code!">Or upload a
+        file</a>
+
+    <script type="module" src="./upload.js"></script>
+
+
 </body>
 
 </html>

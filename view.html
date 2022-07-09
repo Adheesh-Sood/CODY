@@ -16,23 +16,27 @@
 
 <body>
     <h1 class="head">View projects</h1>
+
+
+
+
     <div id="search">
         <input id="searchLang" type="text" class="input" placeholder="Search" autofocus="true"> </input>
+
+    </div>
+    <div class="content" id="con" style="display:none;">
+        <input type="text" id="data" readonly>
+        <br>
+        <button id="show">Show</button>
     </div>
 
     <h2 id="error" class="error"></h2>
 
 
     <!---->
-    <div class="code">
-        <div class="code-lang" id="py">
 
-        </div>
-        <div class="::" id="in">
-            <input id="innerSearch" type="text">
-        </div>
-        <script src="./view.js">
-        </script>
+    <script type="module" src="./view.js">
+    </script>
 
 </body>
 
