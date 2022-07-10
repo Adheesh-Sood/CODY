@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" placeholder="name..." id="name">
+  <textarea type="text" id="code"></textarea>
+
+  <button id="go">Go</button>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+    import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyC_5p_bufa4s-43dCEwFT3HMuJDOYuHsL4",
+      authDomain: "uploadcss-a990d.firebaseapp.com",
+      databaseURL: "https://uploadcss-a990d-default-rtdb.firebaseio.com/",
+      projectId: "uploadcss-a990d",
+      storageBucket: "uploadcss-a990d.appspot.com",
+      messagingSenderId: "165268805388",
+      appId: "1:165268805388:web:85cc5c9c7a2fb19405db29",
+      measurementId: "G-R420DKHRW7"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    function writeUserData(code, name) {
+
+      const db = getDatabase();
+      const postListRef = ref(db, 'posts');
+      const newPostRef = push(postListRef);
+      set(newPostRef, {
+
+        code: document.getElementById('code').value,
+        name: document.getElementById('name').value
+
+      });
+    }
+    document.getElementById('go').onclick = function () {
+      writeUserData(code)
+    }
+
+  </script>
+
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 import { getDatabase, ref, set, push, child, get, onValue } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,7 +31,7 @@ document.getElementById("search").display = ""
 
 
 //................................................................
-input.addEventListener("keypress", function (event) {
+input.addEventListener("keypress", function(event) {
     if (event.key == "Enter") {
         var search = document.getElementById("searchLang").value;
         if (search == "python") {
@@ -52,6 +52,7 @@ input.addEventListener("keypress", function (event) {
             document.getElementById("py").style.display = ""
 
         } else if (search == "HTML") {
+            document.getElementById('htmlTags').style.display = ''
             document.getElementById("error").style.display = "none"
 
             document.getElementById("search").style.display = "none"
@@ -147,16 +148,29 @@ input.addEventListener("keypress", function (event) {
 
 
 
-        document.getElementById('show').addEventListener('click', function () {
+        //HTML 
+        var clickHtml = 0;
+        document.getElementById("tagAtt").addEventListener('click', function() {
+            clickHtml + 1;
+
             const dbRef = ref(db, 'posts/html/att');
 
             onValue(dbRef, (snapshot) => {
                 snapshot.forEach((childSnapshot) => {
                     const childKey = childSnapshot.key;
                     const childData = childSnapshot.val();
+                    const codeDb = childSnapshot.val()
 
                     ;
-                    document.getElementById('data').value = (childData).title;
+                    for (var i in childData) {
+                        console.log(childKey)
+                        var newForm = document.createElement("textArea", "br");
+                        newForm.id = "form" + i
+                        document.body.appendChild(newForm);
+                        newForm.value = (codeDb[i])
+
+
+                    }
 
 
                 });
@@ -166,4 +180,3 @@ input.addEventListener("keypress", function (event) {
         })
     }
 })
-

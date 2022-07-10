@@ -4,9 +4,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=PT+Serif:ital@1&family=Rubik+Moonrocks&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=PT+Serif:ital@1&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +22,16 @@
         <input id="searchLang" type="text" class="input" placeholder="Search" autofocus="true"> </input>
 
     </div>
-    <div class="content" id="con" style="display:none;">
-        <input type="text" id="data" readonly>
-        <br>
-        <button id="show">Show</button>
+    <div id="htmlTags" style="display: none">
+        <button id="tagAtt">Search for <b>Attributes</b></button>
+        <button id="tagAtt">Search for <b>Tags</b></button>
+        <button id="tagAtt">Search for <b>Input and textarea</b></button>
+        <button id="tagAtt">Search for <b>U.I</b></button>
+
+    </div>
+    <div id="results" style="display:none;">
+        <h1 id="heading"></h1>
+        <textarea name="" id="code" cols="30" rows="10"></textarea>
     </div>
 
     <h2 id="error" class="error"></h2>
