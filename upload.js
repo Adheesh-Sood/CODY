@@ -72,7 +72,8 @@ document.getElementById("html-btn").onclick = function() {
 
 get(child(dbRef, 'posts')).then((snapshot) => {
     if (snapshot.exists()) {
-        console.log(snapshot.val());
+
+        console.log(snapshot.val().code);
     } else {
         console.log("No data available");
     }

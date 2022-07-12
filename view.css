@@ -10,6 +10,7 @@
 body {
     transition: 1s ease-in-out;
     background-color: #262335;
+    position: relative;
 }
 
 input {
@@ -25,6 +26,8 @@ input {
     padding: 20px;
     width: 300px;
     height: 0.1px;
+    position: sticky;
+    top: 0;
 }
 
 input:hover {
@@ -39,4 +42,23 @@ input:hover {
     color: red;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-family: 12px;
+}
+
+div {
+    flex-flow: space-between;
+}
+
+button {
+    transition: 3s ease-in-out;
+    flex-flow: space-between;
+    background-color: transparent;
+    color: #56FFC9;
+    border: 2px solid #a1c4fd;
+    cursor: pointer;
+    font-size: 21px;
+}
+
+button:hover {
+    transition: 3s ease-in-out;
+    width: fit-content;
 }

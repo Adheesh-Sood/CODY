@@ -31,7 +31,7 @@ document.getElementById("invalidEmail").style.display = "none"
 document.getElementById("passwordInvalid").style.display = "none"
 document.getElementById("accinuse").style.display = "none"
 document.getElementById("loginError").style.display = "none"
-//HIDING BODY2
+    //HIDING BODY2
 
 
 
@@ -44,7 +44,7 @@ document.getElementById("loginError").style.display = "none"
 
 
 
-document.getElementById("Go").onclick = function () {
+document.getElementById("Go").onclick = function() {
     const email = document.getElementById("email").value
 
     const password = document.getElementById("pass").value
@@ -64,7 +64,7 @@ document.getElementById("Go").onclick = function () {
             const errorCode = error.code;
             const errorMessage = error.message;
             const e = document.getElementById("e")
-            // ..
+                // ..
             console.log(errorMessage)
 
             if (errorMessage == 'Firebase: Error (auth/invalid-email).') {
@@ -95,7 +95,7 @@ document.getElementById("Go").onclick = function () {
 
 }
 
-document.getElementById("btn_").addEventListener("click", function () {
+document.getElementById("btn_").addEventListener("click", function() {
     const email1 = document.getElementById("email_").value
     const password1 = document.getElementById("pass_").value
 
@@ -109,7 +109,7 @@ document.getElementById("btn_").addEventListener("click", function () {
             // ...
             loged = "true";
             console.log("code to move ahead " + "      loged in ")
-            //MOVE USER TO ANOTHER PAGE 
+                //MOVE USER TO ANOTHER PAGE 
 
             document.location.href = "index.html"
 
@@ -128,12 +128,12 @@ document.getElementById("btn_").addEventListener("click", function () {
         });
 })
 
-document.getElementById("google").onclick = function () {
-    document.location.href = "google-auth.html"
-}
-//const email2
+document.getElementById("google").onclick = function() {
+        document.location.href = "google-auth.html"
+    }
+    //const email2
 const email2 = document.getElementById("email2").value
-document.getElementById("goR").onclick = function () {
+document.getElementById("goR").onclick = function() {
     sendPasswordResetEmail(auth, email2)
         .then(() => {
             // Password reset email sent!
@@ -143,7 +143,7 @@ document.getElementById("goR").onclick = function () {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorMessage + errorCode)
-            // ..
+                // ..
         });
 
 }
@@ -166,12 +166,10 @@ window.addEventListener("load", () => {
 
 
 
-    }
-    else {
+    } else {
         document.getElementById("stat").style.backgroundColor = "lime"
 
         document.getElementById("stat").value = "online"
     }
 
 })
-
