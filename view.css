@@ -1,6 +1,6 @@
 .head {
     text-align: center;
-    background-clip: text;
+
     font-family: sans-serif;
     background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     -webkit-background-clip: text;
@@ -9,7 +9,8 @@
 
 body {
     transition: 1s ease-in-out;
-    background-color: #262335;
+    background-color: #241B2F;
+
     position: relative;
 }
 
@@ -41,24 +42,27 @@ input:hover {
 .error {
     color: red;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-family: 12px;
+    font-size: 12px;
 }
 
 div {
-    flex-flow: space-between;
+
 }
 
 button {
-    transition: 3s ease-in-out;
-    flex-flow: space-between;
-    background-color: transparent;
+
+    background-color: black;
     color: #56FFC9;
-    border: 2px solid #a1c4fd;
+    border: 2px solid white;
     cursor: pointer;
     font-size: 21px;
+
 }
 
-button:hover {
-    transition: 3s ease-in-out;
-    width: fit-content;
+
+#formcode {
+    color: #56FFC9;
+    background-color: black;
+    border: none;
+    border: 2px solid white;
 }
