@@ -199,6 +199,17 @@ input.addEventListener("keypress", function (event) {
                     document.getElementById('tagUi').addEventListener('click', () => {
                         newDiv.style.display = 'none'
                     })
+                    document.getElementById('tagAtt').addEventListener('click' , function(){
+
+
+
+
+                    })
+                    input.addEventListener("keypress", function (event) {
+                        if (event.key == "Enter") {
+                            newDiv.style.display="none"
+                        }
+                    })
 
 
 
@@ -249,6 +260,11 @@ document.getElementById("tagTags").addEventListener('click', function () {
             document.getElementById('tagUi').addEventListener('click', () => {
                 newDiv.style.display = 'none'
             })
+            input.addEventListener("keypress", function (event) {
+                if (event.key == "Enter") {
+                    newDiv.style.display="none"
+                }
+            })
 
 
         });
@@ -292,6 +308,11 @@ document.getElementById("tagInp").addEventListener('click', function () {
             document.getElementById('tagUi').addEventListener('click', () => {
                 newDiv.style.display = 'none'
             })
+            input.addEventListener("keypress", function (event) {
+                if (event.key == "Enter") {
+                    newDiv.style.display="none"
+                }
+            })
 
 
         });
@@ -334,6 +355,11 @@ document.getElementById("tagUi").addEventListener('click', function () {
             document.getElementById('tagInp').addEventListener('click', () => {
                 newDiv.style.display = 'none'
             })
+            input.addEventListener("keypress", function (event) {
+                if (event.key == "Enter") {
+                    newDiv.style.display="none"
+                }
+            })
 
 
         });
@@ -363,11 +389,15 @@ document.getElementById("tagUi").addEventListener('click', function () {
 
             }
             newDiv.appendChild(newForm)
-
-            document.getElementById("var").onclick=function(){
-                newDiv.style.display="none"
-            }
-
+            document.getElementById('var').addEventListener('click', () => {
+                newDiv.style.display = 'none'
+            })
+            var inp=document.getElementById('search')
+            input.addEventListener("keypress", function (event) {
+                if (event.key == "Enter") {
+                    newDiv.style.display="none"
+                }
+            })
 
 
 
@@ -395,13 +425,104 @@ document.getElementById("var").onclick=function(){
 
             }
             newDiv.appendChild(newForm)
-            document.getElementById("print").onclick=function(){
-                newDiv.style.display="none"
-            }
+            document.getElementById('print').addEventListener('click', () => {
+                newDiv.style.display = 'none'
+            })
+            input.addEventListener("keypress", function (event) {
+                if (event.key == "Enter") {
+                    newDiv.style.display="none"
+                }
+            })
+
 
 
 
 
         })})}
 
+//VIEW DATA ENDS HERE\
+const langs= ['Html' , 'CSS' , 'Javascript' , 'C#' , 'C++']
+var html=(langs[0])
+var css=(langs[1])
+var js=(langs[2])
+var py=(langs[3])
+var cs=(langs[4])
+var cpp=(langs[5])
 
+input.addEventListener('keypress' , (event)=> {
+    var sug = document.createElement('button')
+    document.body.appendChild(sug)
+    sug.style.display="none"
+    var a=false;
+    if (event.key==html[0] || event.key=='h'){
+        sug.style.display=""
+        sug.textContent="Html"
+        console.log('html')
+        a=true;
+        if(event.key==html[1]){
+
+            if(a!=true){
+                sug.style.display=""
+                sug.textContent="Html"
+                console.log("html")
+                a=true;
+                if(event.key==html[2]){
+                    if(a!=true) {
+                        sug.style.display = ""
+                        sug.textContent = "Html"
+                        a = true;
+                        if(event.key==html[3]){
+                            if(a!=true){
+                                sug.style.display=""
+                                sug.textContent="Html"
+                                a=true;
+                            }
+
+                    }
+                        else{
+                            console.log('hey')
+                        }
+
+                    }
+
+
+
+
+                }
+                else{
+
+                }
+
+
+
+                //show sug
+
+            }
+        }else{
+
+        }
+
+
+    }else{
+
+
+    }
+
+    input.addEventListener('keydown', function(event) {
+        if(event.key=="Backspace"){
+             document.body.removeChild(sug)
+
+
+        }
+
+    })
+
+
+
+
+})
+
+
+
+
+//AUTO COMPLETE STARTS HERE
