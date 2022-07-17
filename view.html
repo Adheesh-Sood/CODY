@@ -4,9 +4,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=PT+Serif:ital@1&family=Rubik+Moonrocks&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=PT+Serif:ital@1&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +12,31 @@
     <title>View Page</title>
 </head>
 
-<body>
+<body id="body">
     <h1 class="head">View projects</h1>
 
 
 
 
     <div id="search">
-        <input id="searchLang" type="text" class="input" placeholder="Search" autofocus="true"> </input>
+        <input id="searchLang" type="text" class="input" placeholder="Search" autofocus="true">
+        <button id="shortCuts">Short-cuts</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="shortDiv" style="display:none;">
+
+
+            <h2 class="short">shift + "h" = Html</h2>
+            <h2 class="short">shift + "j" = Javascript</h2>
+            <h2 class="short">shift + "p" = Python</h2>
+            <h2 class="short">shift + uppercase "C" = Css</h2>
+            <h2 class="short">shift + lowercase "c" = C#</h2>
+            <h2 class="short">control + "c" = C++</h2>
+
+
+        </div>
 
     </div>
     <div id="htmlTags" style="display: none">
@@ -59,6 +74,45 @@
     <!---->
 
     <script type="module" src="./view.js">
+    </script>
+    <script type="module" src="./viewAutoCom.js"></script>
+    <script src="./shortcuts.js"></script>
+    <script>
+        (function() {
+            var ws = new WebSocket('ws://' + window.location.host +
+                '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+                'referrer=' + encodeURIComponent(window.location.pathname));
+            ws.onmessage = function (msg) {
+                if (msg.data === 'reload') {
+                    window.location.reload();
+                }
+                if (msg.data.startsWith('update-css ')) {
+                    var messageId = msg.data.substring(11);
+                    var links = document.getElementsByTagName('link');
+                    for (var i = 0; i < links.length; i++) {
+                        var link = links[i];
+                        if (link.rel !== 'stylesheet') continue;
+                        var clonedLink = link.cloneNode(true);
+                        var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+                        if (newHref !== link.href) {
+                            clonedLink.href = newHref;
+                        }
+                        else {
+                            var indexOfQuest = newHref.indexOf('?');
+                            if (indexOfQuest >= 0) {
+                                // to support ?foo#hash
+                                clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                    newHref.substring(indexOfQuest + 1);
+                            }
+                            else {
+                                clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                            }
+                        }
+                        link.replaceWith(clonedLink);
+                    }
+                }
+            };
+        })()
     </script>
 
 </body>

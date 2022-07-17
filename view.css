@@ -72,3 +72,18 @@ button {
     width: 90px;
     color:white;
 }
+#shortDiv{
+    -webkit-animation: vibrate-1 0.3s linear infinite both;
+    animation: vibrate-1 0.3s linear infinite both;
+
+    text-align:center;
+    background-color: #24292b;
+    border-radius: 25px;
+    padding: 20px;
+
+    height: fit-content;
+}
+.short{
+    color:mediumaquamarine;
+    font-family:"Microsoft Sans Serif"
+}
