@@ -21,147 +21,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const dbRef = ref(db);
+var input = document.getElementById("search");
 
 
 var lang = "none";
 //..................
-var input = document.getElementById("search");
+
 //................................................................
 document.getElementById("search").display = ""
 
 
 //................................................................
-input.addEventListener("keypress", function(event) {
-    if (event.key == "Enter") {
-        var search = document.getElementById("searchLang").value;
-        if (search == "python") {
-
-            document.getElementById("htmlTags").style.display = "none"
-            document.getElementById("pyTags").style.display = ""
-            document.getElementById("error").style.display = "none"
-
-            lang = "python";
-
-        } else if (search == "Python") {
-            document.getElementById("htmlTags").style.display = "none"
-
-            document.getElementById("pyTags").style.display = ""
-
-            document.getElementById("error").style.display = "none"
-
-            document.getElementById("search").style.display = "none"
-
-            lang = "python";
-
-
-            document.getElementById("py").style.display = ""
-
-        } else if (search == "HTML") {
-            document.getElementById("pyTags").style.display = "none"
-
-            document.getElementById('htmlTags').style.display = ''
-            document.getElementById("error").style.display = "none"
-
-            document.getElementById("search").style.position = "stick"
-
-            lang = "python";
-
-            lang = "html";
-            window.alert("Html")
-
-        } else if (search == "html") {
-            document.getElementById("pyTags").style.display = "none"
-
-            document.getElementById('htmlTags').style.display = ""
-
-            document.getElementById("error").style.display = "none"
-
-            document.getElementById("search").style.display = ""
-
-            lang = "python";
-
-
-
-            lang = "html";
-            window.alert("HTML")
-        } else if (search == "CSS") {
-            document.getElementById("error").style.display = "none"
-
-            document.getElementById("search").style.display = "none"
-
-            lang = "python";
-
-            lang = "css";
-            Window.alert("CSS")
-        } else if (search == "css") {
-            document.getElementById("error").style.display = "none"
-
-            document.getElementById("search").style.display = "none"
-
-            lang = "python";
-
-
-
-            lang = "css";
-            Window.alert("CSS")
-        } else if (search == "javascript") {
-            document.getElementById("error").style.display = "none"
-
-            document.getElementById("search").style.display = "none"
-
-
-            lang = "js"
-            window.alert("Javascript")
-        } else if (search == "Javascript") {
-            document.getElementById("error").style.display = "none"
-
-            document.getElementById("search").style.display = "none"
-
-
-
-
-            lang = "js"
-            window.alert("Javascript")
-        } else if (search == "C++") {
-            document.getElementById("error").style.display = "none"
-
-            document.getElementById("search").style.display = "none"
-
-            lang = "python";
-
-
-
-            lang = "c++";
-            window.alert("C++")
-        } else if (search == "C#") {
-            document.getElementById("error").style.display = "none"
-
-            document.getElementById("search").style.display = "none"
-
-            lang = "python";
-
-
-
-
-            lang = "c#";
-            window.alert("C#")
-        } else {
-            document.getElementById("search").display = "none"
-            lang = "none";
-            window.alert("No language found as" + search)
-            document.getElementById("error").innerHTML = "No language found as" + search
-        }
-
-
-
 
 
 
 
         //HTML 
-        var clickHtml = 0;
+        var clickHtml = false
         document.getElementById("tagAtt").addEventListener('click', function() {
-            clickHtml + 1;
+
 
 
             const dbRef = ref(db, 'posts/html/att');
@@ -174,17 +52,29 @@ input.addEventListener("keypress", function(event) {
 
                     ;
                     for (var i in childData) {
-                        var newForm = document.createElement("textArea", "br")
+                        var newText=document.createElement('h1')
+                        var user=document.createElement('h2')
+                        var newForm = document.createElement("textArea", )
                         var newDiv = document.createElement("div")
-                        newForm.id = "form" + i
+                        var hr=document.createElement('hr')
+                        newForm.id = "form"
+                        user.id="username"
+                        newText.id="headingText"
+                        newDiv.id="divCode"
                         newForm.readOnly = true
                         document.body.appendChild(newDiv)
-                        newForm.value = (codeDb[i])
+                        newForm.value = codeDb.code
+                        newText.textContent=codeDb.title
+                        user.textContent=codeDb.username;
 
 
                     }
-
+                    newDiv.appendChild(newText)
+                    newDiv.appendChild(hr)
                     newDiv.appendChild(newForm)
+                    newDiv.appendChild(user)
+                    newDiv.appendChild(hr)
+
 
                     //................................................................
                     document.getElementById('tagTags').addEventListener('click', () => {
@@ -203,9 +93,10 @@ input.addEventListener("keypress", function(event) {
 
                     })
                     input.addEventListener("keypress", function(event) {
-                        if (event.key == "Enter") {
+                            document.getElementById('tags').style.display="none"
+
                             newDiv.style.display = "none"
-                        }
+
                     })
 
 
@@ -217,8 +108,8 @@ input.addEventListener("keypress", function(event) {
             }, {
                 onlyOnce: true
             });
-        })
-    }
+
+
 })
 
 //END ATT
@@ -230,23 +121,34 @@ document.getElementById("tagTags").addEventListener('click', function() {
 
         const dbRef = ref(db, 'posts/html/tags');
 
-        onValue(dbRef, (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                const codeDb = childSnapshot.val()
+    onValue(dbRef, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const childData = childSnapshot.val();
+            const codeDb = childSnapshot.val()
 
-                ;
-                for (var i in childData) {
-                    var newForm = document.createElement("textArea", "br");
-                    var newDiv = document.createElement("div")
-                    newForm.id = "form" + i
-                    newForm.readOnly = true
-                    document.body.appendChild(newDiv)
-                    newForm.value = (codeDb[i])
+            ;
+            for (var i in childData) {
+                var newText=document.createElement('h1')
+                var user=document.createElement('h2')
+                var newForm = document.createElement("textArea", )
+                var newDiv = document.createElement("div")
+                user.id="username"
+                newForm.id = "form"
+                newText.id="headingText"
+                newDiv.id="divCode"
+                newForm.readOnly = true
+                document.body.appendChild(newDiv)
+                newForm.value = codeDb.code
+                newText.textContent=codeDb.title
+                user.textContent=codeDb.username;
 
-                }
-                newDiv.appendChild(newForm)
+
+            }
+            newDiv.appendChild(newText)
+            newDiv.appendChild(newForm)
+            newDiv.appendChild(user)
+
                 document.getElementById('tagAtt').addEventListener('click', () => {
                     newDiv.style.display = 'none'
                 })
@@ -258,9 +160,13 @@ document.getElementById("tagTags").addEventListener('click', function() {
                     newDiv.style.display = 'none'
                 })
                 input.addEventListener("keypress", function(event) {
-                    if (event.key == "Enter") {
-                        newDiv.style.display = "none"
-                    }
+                    document.getElementById('tags').style.display="none"
+
+
+
+
+                    newDiv.style.display = "none"
+
                 })
 
 
@@ -278,24 +184,35 @@ document.getElementById("tagInp").addEventListener('click', function() {
 
         const dbRef = ref(db, 'posts/html/inputs');
 
-        onValue(dbRef, (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                const codeDb = childSnapshot.val()
+    onValue(dbRef, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const childData = childSnapshot.val();
+            const codeDb = childSnapshot.val()
+            const username=(childSnapshot.val()).username
 
-                ;
-                for (var i in childData) {
-                    var newForm = document.createElement("textArea", "br");
-                    var newDiv = document.createElement("div")
-                    newForm.id = "form" + i
-                    newForm.readOnly = true
-                    document.body.appendChild(newDiv)
-                    newForm.value = (codeDb[i])
+            ;
+            for (var i in childData) {
+                var newText=document.createElement('h1')
+                var user=document.createElement('h2')
+                var newForm = document.createElement("textArea", )
+                var newDiv = document.createElement("div")
+                newForm.id = "form"
+                user.id="username"
+                newText.id="headingText"
+                newDiv.id="divCode"
+                newForm.readOnly = true
+                document.body.appendChild(newDiv)
+                newForm.value = codeDb.code
+                newText.textContent=codeDb.title
+                user.textContent=username
 
 
-                }
-                newDiv.appendChild(newForm)
+
+            }
+            newDiv.appendChild(newText)
+            newDiv.appendChild(newForm)
+            newDiv.appendChild(user)
                 document.getElementById('tagAtt').addEventListener('click', () => {
                     newDiv.style.display = 'none'
                 })
@@ -306,9 +223,11 @@ document.getElementById("tagInp").addEventListener('click', function() {
                     newDiv.style.display = 'none'
                 })
                 input.addEventListener("keypress", function(event) {
-                    if (event.key == "Enter") {
+
                         newDiv.style.display = "none"
-                    }
+                        document.getElementById('tags').style.display="none"
+
+
                 })
 
 
@@ -326,23 +245,33 @@ document.getElementById("tagUi").addEventListener('click', function() {
 
         const dbRef = ref(db, 'posts/html/ui');
 
-        onValue(dbRef, (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                const codeDb = childSnapshot.val()
+    onValue(dbRef, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const childData = childSnapshot.val();
+            const codeDb = childSnapshot.val()
 
-                ;
-                for (var i in childData) {
-                    var newForm = document.createElement("textArea", "br");
-                    var newDiv = document.createElement("div")
-                    newForm.id = "form" + i
-                    newForm.readOnly = true
-                    document.body.appendChild(newDiv)
-                    newForm.value = (codeDb[i])
+            ;
+            for (var i in childData) {
+                var newText=document.createElement('h1')
+                var user=document.createElement('h2')
+                var newForm = document.createElement("textArea", )
+                var newDiv = document.createElement("div")
+                newForm.id = "form"
+                newText.id="headingText"
+                user.id="username"
+                newDiv.id="divCode"
+                newForm.readOnly = true
+                document.body.appendChild(newDiv)
+                newForm.value = codeDb.code
+                newText.textContent=codeDb.title
+                user.textContent=codeDb.username;
 
-                }
-                newDiv.appendChild(newForm)
+
+            }
+            newDiv.appendChild(newText)
+            newDiv.appendChild(newForm)
+            newDiv.appendChild(user)
                 document.getElementById('tagAtt').addEventListener('click', () => {
                     newDiv.style.display = 'none'
                 })
@@ -353,9 +282,12 @@ document.getElementById("tagUi").addEventListener('click', function() {
                     newDiv.style.display = 'none'
                 })
                 input.addEventListener("keypress", function(event) {
-                    if (event.key == "Enter") {
+
                         newDiv.style.display = "none"
-                    }
+
+                        document.getElementById('tags').style.display="none"
+
+
                 })
 
 
@@ -368,32 +300,43 @@ document.getElementById("tagUi").addEventListener('click', function() {
     //PY START
 document.getElementById("print").onclick = function() {
         const dbRef = ref(db, 'posts/py/print');
+    onValue(dbRef, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const childData = childSnapshot.val();
+            const codeDb = childSnapshot.val()
 
-        onValue(dbRef, (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                const codeDb = childSnapshot.val()
+            ;
+            for (var i in childData) {
+                var newText=document.createElement('h1')
+                var user=document.createElement('h2')
+                var newForm = document.createElement("textArea", )
+                var newDiv = document.createElement("div")
+                newForm.id = "form"
+                user.id="username"
+                newText.id="headingText"
+                newDiv.id="divCode"
+                newForm.readOnly = true
+                document.body.appendChild(newDiv)
+                newForm.value = codeDb.code
+                newText.textContent=codeDb.title
+                user.textContent=codeDb.username;
 
-                ;
-                for (var i in childData) {
-                    var newForm = document.createElement("textArea", "br");
-                    var newDiv = document.createElement("div")
-                    newForm.id = "form" + i
-                    newForm.readOnly = true
-                    document.body.appendChild(newDiv)
-                    newForm.value = (codeDb[i])
 
-                }
-                newDiv.appendChild(newForm)
+            }
+            newDiv.appendChild(newText)
+            newDiv.appendChild(newForm)
+            newDiv.appendChild(user)
                 document.getElementById('var').addEventListener('click', () => {
                     newDiv.style.display = 'none'
                 })
                 var inp = document.getElementById('search')
                 input.addEventListener("keypress", function(event) {
-                    if (event.key == "Enter") {
-                        newDiv.style.display = "none"
-                    }
+                    document.getElementById('tags').style.display="none"
+
+
+                    newDiv.style.display = "none"
+
                 })
 
 
@@ -406,7 +349,6 @@ document.getElementById("print").onclick = function() {
     //Start VAR
 document.getElementById("var").onclick = function() {
     const dbRef = ref(db, 'posts/py/var');
-
     onValue(dbRef, (snapshot) => {
         snapshot.forEach((childSnapshot) => {
             const childKey = childSnapshot.key;
@@ -415,22 +357,34 @@ document.getElementById("var").onclick = function() {
 
             ;
             for (var i in childData) {
-                var newForm = document.createElement("textArea", "br");
+                var newText=document.createElement('h1')
+                var user=document.createElement('h2')
+                var newForm = document.createElement("textArea", )
                 var newDiv = document.createElement("div")
-                newForm.id = "form" + i
+                newForm.id = "form"
+                newText.id="headingText"
+                newDiv.id="divCode"
+                user.id="username"
                 newForm.readOnly = true
                 document.body.appendChild(newDiv)
-                newForm.value = (codeDb[i])
+                newForm.value = codeDb.code
+                newText.textContent=codeDb.title
+                user.textContent=codeDb.username;
+
 
             }
+            newDiv.appendChild(newText)
             newDiv.appendChild(newForm)
+            newDiv.appendChild(user)
             document.getElementById('print').addEventListener('click', () => {
                 newDiv.style.display = 'none'
             })
             input.addEventListener("keypress", function(event) {
-                if (event.key == "Enter") {
-                    newDiv.style.display = "none"
-                }
+                document.getElementById('tags').style.display="none"
+
+
+                newDiv.style.display = "none"
+
             })
 
 
@@ -444,3 +398,21 @@ document.getElementById("var").onclick = function() {
 
 
 //VIEW DATA ENDS HERE\
+document.getElementById('test').addEventListener('click' , ()=>{
+    const dbRef = ref(db, 'username/' + uid);
+
+    onValue(dbRef, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const childData = childSnapshot.val();
+            console.log(childData)
+
+
+
+
+
+
+        })})
+
+})
+

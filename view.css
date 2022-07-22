@@ -1,29 +1,32 @@
 .head {
     text-align: center;
 
-    font-family: sans-serif;
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: monospace;
+    color:#4444E9;
+    font-size:60px;
+
 }
 
 body {
     transition: 1s ease-in-out;
-    background-color: #241B2F;
+    background-color: #151515;
 
     position: relative;
 }
 
 input {
+
+    color:#039be5;
     font-weight: bold;
     font-family: cursive;
     transition: width 2s;
     font-size: 24px;
     text-align: center;
-    border: 1px solid #262335;
+    text-align: center;
+    border: 2px solid #4444E9;
     ;
     border-radius: 25px;
-    background: #56FFC9;
+    background: transparent;
     padding: 20px;
     width: 300px;
     height: 0.1px;
@@ -33,9 +36,9 @@ input {
 
 input:hover {
     width: 96%;
-    background-color: #262335;
-    color: #56FFC9;
-    border: 3px solid black;
+    background-color: transparent;
+
+    border: 3px solid #ffffff;
     transition: 2s ease-in-out;
 }
 
@@ -48,23 +51,108 @@ input:hover {
 div {
 
 }
+/*norm button*/
 
-button {
+/*button {
+    font-size:25px;
+    border-radius: 8px;
 
-    background-color: black;
-    color: #56FFC9;
-    border: 2px solid white;
+
+    background-color: transparent;
+    color: #4444E9;
+
     cursor: pointer;
-    font-size: 21px;
+
+
+}
+button:hover{
+
+    background-color:#4444E9;
+    color:#151515;
+
+
+}*/
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+/*second type slide*/
+/*button{
+    width:300px;
+    height: 100px;
+    border:none;
+    color:#ffffff;
+    background-color:#4444E9;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 0 #96e6a1 ;
+    transition: ease-out 0.3s;
+    font-size:2rem;
+    outline: none;
+}
+button:hover{
+    box-shadow: inset 300px 0 0 0 #96e6a1 ;
+    cursor: pointer;
+    color:#151515;
+    }
+    */
+
+/*third type*/
+button{
+    background-color:transparent;
+    width:fit-content;
+    height: fit-content;
+
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size:25px;
+    outline: none;
+    color:white;
+    border:3px solid #039be5;
+    position: relative;
+    z-index: 1;
+
+}
+button:hover{
+    color:#151515;
+
+
+}
+button:before{
+    transition:0.5s all ease;
+    position: absolute;
+    top:0;
+    left: 50%;
+    right:50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: #4444E9;
+}
+button:hover:before{
+    transition: 0.5s all ease;
+    left:0;
+    right:0;
+    opacity: 1;
+    z-index: -1;
+
 
 }
 
 
-#formcode {
-    color: #56FFC9;
+
+
+
+#form {
+
+    color: #4444E9;
     background-color: black;
     border: none;
-    border: 2px solid white;
+    border-radius: 25px;
+    padding: 20px;
+
+    height: 150px;
+    width:600px;
+    font-family:"Comic Mono";
+    text-align:left;
+
+
 }
 #sug{
     height:30px ;
@@ -86,4 +174,34 @@ button {
 .short{
     color:mediumaquamarine;
     font-family:"Microsoft Sans Serif"
+}
+#headingText{
+    color:#4444E9;
+    font-family:"Cedarville Cursive"
+}
+#divCode{
+    transition:1s ease-in-out;
+
+
+    width:700px;
+}
+.headingTextTopCode{
+    justify-content: space-around;
+}
+#c{
+    background-color: transparent;
+    border:none;
+    font-family:cursive;
+    font-weight:bold;
+    font-style:italic;
+    font-size:30px;
+}
+#c:hover{
+    color:black;
+}
+#username{
+    color:#ffffff;
+    font-family:sans-serif;
+    font-style:italic;
+    font-variant: all-small-caps;
 }

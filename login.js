@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+import { getAuth,onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 //hiding reset password div
@@ -8,12 +8,13 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAzMjbfCRxvsa9sO5V5AOpun39P3Bn5BQQ",
-    authDomain: "cody-cc9a5.firebaseapp.com",
-    projectId: "cody-cc9a5",
-    storageBucket: "cody-cc9a5.appspot.com",
-    messagingSenderId: "1064418253596",
-    appId: "1:1064418253596:web:732e3ee1a015546439f8d9"
+    apiKey: "AIzaSyDpnibzSE0ygWpQFbrio3xY85_xq7kotvs",
+    authDomain: "uploadpleasework.firebaseapp.com",
+    databaseURL: "https://uploadpleasework-default-rtdb.firebaseio.com",
+    projectId: "uploadpleasework",
+    storageBucket: "uploadpleasework.appspot.com",
+    messagingSenderId: "1019661590610",
+    appId: "1:1019661590610:web:4f69fd16fe7bf6fcff3f8b"
 };
 
 // Initialize Firebase
@@ -56,6 +57,7 @@ document.getElementById("Go").onclick = function() {
 
 
             const user = userCredential.user;
+
             // ...
             console.log("created user___")
         })
@@ -111,7 +113,20 @@ document.getElementById("btn_").addEventListener("click", function() {
             console.log("code to move ahead " + "      loged in ")
                 //MOVE USER TO ANOTHER PAGE 
 
-            document.location.href = "index.html"
+            document.location.href = "#"
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/firebase.User
+                    const uid = user.uid;
+                    console.log(uid)
+                    // ...
+                } else {
+                    // User is signed out
+                    // ...
+                }
+            });
+
 
 
         })
